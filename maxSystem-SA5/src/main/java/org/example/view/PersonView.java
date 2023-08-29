@@ -1,7 +1,7 @@
-package com.example.appwebsenai.view;
+package org.example.view;
 
-import com.example.appwebsenai.controller.Controller;
-import com.example.appwebsenai.model.Person;
+import org.example.controller.Controller;
+import org.example.model.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,25 +15,25 @@ public class PersonView {
     @Autowired
     Controller controller;
     @GetMapping("/person")
-    public Person findPerson(@PathParam("name") String name){
+    public Person findClient(@PathParam("name") String name){
         return controller.findClient(name);
     }
 
 
     @DeleteMapping("/person")
-    public String deletePerson(@PathParam("name") String name){
+    public String deleteClient(@PathParam("name") String name){
         controller.removeClient(name);
 
-        return "Pessoa com o nome de " + name + " foi deletada";
+        return "O cliente: " + name + " foi deletado com sucesso!";
     }
 
     @PostMapping("/person")
-    public Person addPerson(@PathParam("name") String name, @PathParam("sexo") String sexo){
+    public Person addClient(@PathParam("name") String name, @PathParam("sexo") String sexo){
         return controller.addClient(name, sexo);
     }
 
     @PutMapping("/person")
-    public Person updatePerson(@PathParam("name") String name, @PathParam("sexo") String sexo){
+    public Person updateClient(@PathParam("name") String name, @PathParam("sexo") String sexo){
         return controller.editClient(name, sexo);
     }
 

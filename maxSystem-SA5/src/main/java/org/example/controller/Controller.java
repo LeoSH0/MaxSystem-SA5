@@ -1,6 +1,6 @@
-package com.example.appwebsenai.controller;
+package org.example.controller;
 
-import com.example.appwebsenai.model.Person;
+import org.example.model.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,12 +37,12 @@ public class Controller {
     }
 
     public void removeClient(String name){
-        Person p = findPerson(name);
+        Person p = findClient(name);
         personRep.delete(p);
     }
 
     public Person editClient(String name, String sexo){
-        Person p = findPerson(name);
+        Person p = findClient(name);
         p.setSexo(sexo);
         personRep.save(p);
         return p;
